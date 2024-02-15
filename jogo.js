@@ -1,6 +1,6 @@
 var game;
         var garoto;
-        var cursors;
+        var cursor;
 
         window.onload = function() {
             var config = {
@@ -26,7 +26,7 @@ var game;
         function create() {
             this.add.image(400, 300, 'mapa').setScale(1.2);
             garoto = this.add.sprite(100, 300, 'garoto').setScale(3);
-            cursors = this.input.keyboard.addKeys({
+            cursor = this.input.keyboard.addKeys({
                 'up': Phaser.Input.Keyboard.KeyCodes.W,
                 'down': Phaser.Input.Keyboard.KeyCodes.S,
                 'left': Phaser.Input.Keyboard.KeyCodes.A,
@@ -58,22 +58,22 @@ var game;
             var horizontalMovement = 0;
             var verticalMovement = 0;
 
-            if (cursors.left.isDown) {
+            if (cursor.left.isDown) {
                 horizontalMovement = -1;
                 garoto.setFlip(true, false);
                 garoto.anims.play('andar', true);
 
 
-            } else if (cursors.right.isDown) {
+            } else if (cursor.right.isDown) {
                 horizontalMovement = 1;
                 garoto.setFlip(false, false);
                 garoto.anims.play('andar', true);
             }
 
-            if (cursors.up.isDown) {
+            if (cursor.up.isDown) {
                 verticalMovement = -1;
                 garoto.anims.play('subir', true);
-            } else if (cursors.down.isDown) {
+            } else if (cursor.down.isDown) {
                 garoto.anims.play('descer', true);
                 verticalMovement = 1;
             }
